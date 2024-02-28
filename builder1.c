@@ -51,9 +51,9 @@ int settingalias(info_t *info, char *str)
 	if (!c)
 		return (1);
 	if (!*++c)
-		return (unset_alias(info, str));
+		return (unsettingalias(info, str));
 
-	unset_alias(info, str);
+	unsettingalias(info, str);
 	return (add_node_end(&(info->alias), str, 0) == NULL);
 }
 
@@ -70,7 +70,7 @@ int aliass(list_t *node)
 	if (node)
 	{
 		c = _strchr(node->str, '=');
-		for (b = node->str; b <= c; a++)
+		for (b = node->str; b <= c; b++)
 			_putchar(*b);
 		_putchar('\'');
 		_puts(p + 1);
@@ -97,7 +97,7 @@ int alias(info_t *info)
 		node = info->alias;
 		while (node)
 		{
-			print_alias(node);
+			print_list(node);
 			node = node->next;
 		}
 		return (0);
@@ -106,9 +106,9 @@ int alias(info_t *info)
 	{
 		c = _strchr(info->argv[i], '=');
 		if (c)
-			set_alias(info, info->argv[i]);
+			settingalias(info, info->argv[i]);
 		else
-			print_alias(node_starts_with(info->alias, info->argv[i], '='));
+			print_list(node_starts_with(info->alias, info->argv[i], '='));
 	}
 
 	return (0);

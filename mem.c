@@ -6,7 +6,7 @@
  *
  * Return: 1 if freed, otherwise 0.
  */
-int free(void **ptr)
+int zfree(void **ptr)
 {
 	if (ptr && *ptr)
 	{

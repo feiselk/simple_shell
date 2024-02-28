@@ -155,12 +155,12 @@ void ffree(char **);
 void *_realloc(void *, unsigned int, unsigned int);
 
 /* toem_mem.c */
-int free(void **);
+int zfree(void **);
 /* toem_atoiiii.c */
 int inter(info_t *);
 int delimm(char, char *);
 int alpha(int);
-int atoi(char *);
+int zatoi(char *);
 /* toem_erry1.c */
 int _errayoi(char *);
 void print_error(info_t *, char *);
@@ -168,7 +168,7 @@ int print_bigd(int, int);
 char *convert_numbering(long int, int, int);
 void remove_commen(char *);
 /* toem_builter.c */
-int exit(info_t *);
+int zexit(info_t *);
 int cd(info_t *);
 int help(info_t *);
 /* toem_builder1.c */

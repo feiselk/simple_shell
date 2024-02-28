@@ -28,10 +28,10 @@ int hsh(info_t *info, char **av)
 		}
 		else if (interactive(info))
 			_putchar('\n');
-		free_info(info, 0);
+		free_infor(info, 0);
 	}
 	writehistory(info);
-	free_info(info, 1);
+	free_infor(info, 1);
 	if (!interactive(info) && info->status)
 		exit(info->status);
 	if (builtin_ret == -2)
@@ -57,13 +57,13 @@ int find_builtin(info_t *info)
 	int i, built_in_ret = -1;
 	builtin_table builtintbl[] = {
 		{"exit", exit},
-		{"env", _myenv},
+		{"env", _env},
 		{"help", help},
-		{"history", _myhistory},
-		{"setenv", _mysetenv},
-		{"unsetenv", unsetenv},
+		{"history", history},
+		{"setenv", _setenv},
+		{"unsetenv", _unsetenv},
 		{"cd", cd},
-		{"alias", _myalias},
+		{"alias", alias},
 		{NULL, NULL}
 	};
 
@@ -100,7 +100,7 @@ void find_cmd(info_t *info)
 	if (!k)
 		return;
 
-	path = find_path(info, _getenv(info, "PATH="), info->argv[0]);
+	path = find_path(info, _setenv(info, "PATH="), info->argv[0]);
 	if (path)
 	{
 		info->path = path;
@@ -108,7 +108,7 @@ void find_cmd(info_t *info)
 	}
 	else
 	{
-		if ((interactive(info) || _getenv(info, "PATH=")
+		if ((interactive(info) || _setenv(info, "PATH=")
 			|| info->argv[0][0] == '/') && is_cmd(info, info->argv[0]))
 			fork_cmd(info);
 		else if (*(info->arg) != '\n')
@@ -140,7 +140,7 @@ void fork_cmd(info_t *info)
 	{
 		if (execve(info->path, info->argv, get_environ(info)) == -1)
 		{
-			free_info(info, 1);
+			free_infor(info, 1);
 			if (errno == EACCES)
 				exit(126);
 			exit(1);

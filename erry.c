@@ -79,7 +79,7 @@ int _putsfaya(char *str, int fd)
 		return (0);
 	while (*str)
 	{
-		i += _putfd(*str++, fd);
+		i += _puts(*str++, fd);
 	}
 	return (i);
 }

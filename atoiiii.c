@@ -45,7 +45,7 @@ int alpha(int c)
  *Return: 0 if no numbers in string, converted number otherwise
  */
 
-int atoi(char *s)
+int zatoi(char *s)
 {
 	int i, sigma = 1, flagg = 0, output;
 	unsigned int result = 0;
