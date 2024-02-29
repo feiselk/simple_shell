@@ -89,14 +89,14 @@ ssize_t get_input(info_t *info)
 	return (r); /* return length of buffer from _getline() */
 }
 /**
- * read_buffet - reads a buffer
+ * read_buf - reads a buffer
  * @info: parameter struct
  * @buf: buffer
  * @i: size
  *
  * Return: r
  */
-ssize_t read_buffet(info_t *info, char *buf, size_t *i)
+ssize_t read_buf(info_t *info, char *buf, size_t *i)
 {
 	ssize_t r = 0;
 
@@ -156,12 +156,12 @@ int _getline(info_t *info, char **ptr, size_t *length)
 }
 
 /**
- * sighandler - blocks ctrl-C
- * @sig_ma: the signal number
+ * sigintHandler - blocks ctrl-C
+ * @sig_num: the signal number
  *
  * Return: void
  */
-void sighandler(__attribute__((unused))int sig_ma)
+void sigintHandler(__attribute__((unused))int sig_num)
 {
 	_puts("\n");
 	_puts("$ ");

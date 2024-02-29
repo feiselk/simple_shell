@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * _errayoi - converts a string to an integer
+ * _erratoi - converts a string to an integer
  * @s: the string to be converted
  * Return: 0 if no numbers in string, converted number otherwise
  *       -1 on error
  */
-int _errayoi(char *s)
+int _erratoi(char *s)
 {
 	int i = 0;
 	unsigned long int result = 0;
@@ -47,13 +47,13 @@ void print_error(info_t *info, char *estr)
 }
 
 /**
- * print_bigd - function prints a decimal (integer) number (base 10)
+ * print_d - function prints a decimal (integer) number (base 10)
  * @input: the input
  * @fd: the filedescriptor to write to
  *
  * Return: number of characters printed
  */
-int print_bigd(int input, int fd)
+int print_d(int input, int fd)
 {
 	int (*__putchar)(char) = _putchar;
 	int i, count = 0;
@@ -86,14 +86,14 @@ int print_bigd(int input, int fd)
 }
 
 /**
- * convert_numbering - converter function, a clone of itoa
+ * convert_number - converter function, a clone of itoa
  * @num: number
  * @base: base
  * @flags: argument flags
  *
  * Return: string
  */
-char *convert_numbering(long int num, int base, int flags)
+char *convert_number(long int num, int base, int flags)
 {
 	static char *array;
 	static char buffer[50];
@@ -122,12 +122,12 @@ char *convert_numbering(long int num, int base, int flags)
 }
 
 /**
- * remove_commen - function replaces first instance of '#' with '\0'
+ * remove_comments - function replaces first instance of '#' with '\0'
  * @buf: address of the string to modify
  *
  * Return: Always 0;
  */
-void remove_commen(char *buf)
+void remove_comments(char *buf)
 {
 	int i;
 

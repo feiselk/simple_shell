@@ -42,14 +42,14 @@ int _eputchar(char c)
 }
 
 /**
- * _putfufu - writes the character c to given fd
+ * _putfd - writes the character c to given fd
  * @c: The character to print
  * @fd: The filedescriptor to write to
  *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int _putfufu(char c, int fd)
+int _putfd(char c, int fd)
 {
 	static int i;
 	static char buf[WRITE_BUF_SIZE];
@@ -65,21 +65,16 @@ int _putfufu(char c, int fd)
 }
 
 /**
- *_putsfaya - prints an input string
+ *_putsfd - prints an input string
  * @str: the string to be printed
  * @fd: the filedescriptor to write to
  *
  * Return: the number of chars put
  */
-int _putsfaya(char *str, int fd)
+int _putsfd(char *str, int fd)
 {
 	int i = 0;
 
 	if (!str)
 		return (0);
-	while (*str)
-	{
-		i += _puts(*str++, fd);
-	}
-	return (i);
-}
+
